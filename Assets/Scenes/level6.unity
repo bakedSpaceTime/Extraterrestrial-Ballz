@@ -670,7 +670,7 @@ MonoBehaviour:
   xLength: 20
   yLength: 0
   zLength: 0
-  linearSpeed: 0
+  linearSpeed: 2
   spinCCW: 0
   spinCW: 0
   angularSpeed: 0
@@ -1096,7 +1096,7 @@ MonoBehaviour:
   xLength: 17.5
   yLength: 0
   zLength: 0
-  linearSpeed: 0
+  linearSpeed: 1
   spinCCW: 0
   spinCW: 0
   angularSpeed: 0
@@ -2474,7 +2474,7 @@ MonoBehaviour:
   xLength: 7
   yLength: 0
   zLength: 0
-  linearSpeed: 0
+  linearSpeed: 1
   spinCCW: 0
   spinCW: 0
   angularSpeed: 0
@@ -4902,7 +4902,7 @@ MonoBehaviour:
   xLength: 3.5
   yLength: 0
   zLength: 0
-  linearSpeed: 0
+  linearSpeed: 1
   spinCCW: 0
   spinCW: 0
   angularSpeed: 0

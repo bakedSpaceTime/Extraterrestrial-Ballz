@@ -392,7 +392,10 @@ MonoBehaviour:
   xLength: 0
   yLength: 5
   zLength: 0
-  speed: 1
+  linearSpeed: 1.5
+  spinCCW: 0
+  spinCW: 0
+  angularSpeed: 0
 --- !u!65 &278471635
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -500,7 +503,10 @@ MonoBehaviour:
   xLength: 5
   yLength: 0
   zLength: 0
-  speed: 0.5
+  linearSpeed: 1
+  spinCCW: 0
+  spinCW: 0
+  angularSpeed: 0
 --- !u!65 &291507930
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2124,7 +2130,10 @@ MonoBehaviour:
   xLength: 7
   yLength: 0
   zLength: 0
-  speed: 1
+  linearSpeed: 1.5
+  spinCCW: 0
+  spinCW: 0
+  angularSpeed: 0
 --- !u!65 &913444946
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2767,7 +2776,10 @@ MonoBehaviour:
   xLength: 2
   yLength: 0
   zLength: 0
-  speed: 1
+  linearSpeed: 0
+  spinCCW: 0
+  spinCW: 0
+  angularSpeed: 0
 --- !u!114 &1149309653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3879,7 +3891,10 @@ MonoBehaviour:
   xLength: 7
   yLength: 0
   zLength: 0
-  speed: 1
+  linearSpeed: 1.5
+  spinCCW: 0
+  spinCW: 0
+  angularSpeed: 0
 --- !u!65 &1574081169
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5224,7 +5239,10 @@ MonoBehaviour:
   xLength: 2
   yLength: 0
   zLength: 0
-  speed: 1
+  linearSpeed: 0
+  spinCCW: 0
+  spinCW: 0
+  angularSpeed: 0
 --- !u!114 &2020934175
 MonoBehaviour:
   m_ObjectHideFlags: 0
