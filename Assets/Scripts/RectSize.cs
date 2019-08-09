@@ -9,6 +9,6 @@ public class RectSize : MonoBehaviour
     void Start()
     {
         int levelCount = SceneManager.sceneCountInBuildSettings - 2;
-        GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, levelCount * 870);
+        GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, levelCount * 800);
     }
 }
