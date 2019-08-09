@@ -52,5 +52,6 @@ public class CircularBarrier : MonoBehaviour
 
 
         transform.localPosition = movement + offset;
+        //transform.position = movement + offset;
     }
 }
