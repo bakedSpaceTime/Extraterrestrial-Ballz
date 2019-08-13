@@ -11,7 +11,7 @@ public class LevelControl : MonoBehaviour
     public GameObject buttonParent;
 
     private int nextLevel;
-    private int nonMenuLevels = 3;
+    private int MenuScenes = 3;
    
     private void Start()
     {
@@ -57,7 +57,7 @@ public class LevelControl : MonoBehaviour
 
     private void CreateLevelButtons()
     {
-        int levelCount = SceneManager.sceneCountInBuildSettings - nonMenuLevels;
+        int levelCount = SceneManager.sceneCountInBuildSettings - MenuScenes;
         int i;
 
         for (i = 1; i <= levelCount; i++)
