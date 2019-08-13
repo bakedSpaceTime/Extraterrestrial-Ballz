@@ -30,12 +30,14 @@ public class PlayerController : MonoBehaviour
         {
             moveHorizontal = Input.GetAxis("Horizontal");
             moveVertical = Input.GetAxis("Vertical");
-          //  isAndroid = false;
+            //  isAndroid = false;
+            Debug.Log(moveHorizontal);
         }
         else
         {
             moveHorizontal = Input.acceleration.x * androidMult;
-            moveVertical = Input.acceleration.y * androidMult; 
+            moveVertical = Input.acceleration.y * androidMult;
+            Debug.Log(moveHorizontal);
         }
         
         var movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
