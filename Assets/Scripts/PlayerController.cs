@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float explrad;
     public float androidMult;
 
+    private Vector3 accelerationOffset;
     private Rigidbody rb;
 
     void Start()
@@ -31,11 +32,12 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            moveHorizontal = Input.acceleration.x * androidMult;
-            moveVertical = Input.acceleration.y * androidMult;
-            Debug.Log(moveHorizontal);
+            moveHorizontal = (Input.acceleration.x - PlayerPrefs.GetFloat("ACalX",0)) * androidMult;
+            moveVertical = (Input.acceleration.y - PlayerPrefs.GetFloat("ACalY", 0)) * androidMult;
+            Debug.Log(moveVertical);
+            Debug.Log(Input.acceleration.z);
         }
-        
+
         var movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
         rb.AddForce(-1f * movement * speed);

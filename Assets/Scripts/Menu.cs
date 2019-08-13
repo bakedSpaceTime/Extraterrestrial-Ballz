@@ -13,6 +13,7 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(0, LoadSceneMode.Single);
         Time.timeScale = 1.0f;
     }
+
     public void PlayGame()
     {
         SceneManager.LoadScene("level1", LoadSceneMode.Single);
@@ -37,5 +38,14 @@ public class Menu : MonoBehaviour
         gameOverlay.SetActive(true);
         pauseMenu.SetActive(false);
         Time.timeScale = 1.0f;
+    }
+
+    public void CalibrateAcceleration()
+    {
+        Vector3 baseAcceleration = Input.acceleration;
+
+        PlayerPrefs.SetFloat("ACalX", baseAcceleration.x);
+        PlayerPrefs.SetFloat("ACalY", baseAcceleration.y);
+        //PlayerPrefs.SetFloat("ACalz", 0.0f);
     }
 }
