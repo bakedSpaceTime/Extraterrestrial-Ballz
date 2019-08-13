@@ -11,12 +11,9 @@ public class PlayerController : MonoBehaviour
     public float androidMult;
 
     private Rigidbody rb;
-    private float moveHorizontal;
-    //private bool isAndroid;
 
     void Start()
     {
-       // isAndroid = true;
         rb = GetComponent<Rigidbody>();
     }
 
@@ -30,7 +27,6 @@ public class PlayerController : MonoBehaviour
         {
             moveHorizontal = Input.GetAxis("Horizontal");
             moveVertical = Input.GetAxis("Vertical");
-            //  isAndroid = false;
             Debug.Log(moveHorizontal);
         }
         else
@@ -43,16 +39,7 @@ public class PlayerController : MonoBehaviour
         var movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
         rb.AddForce(-1f * movement * speed);
-        /*
-        if (!isAndroid && (Input.GetAxis("Jump") != 0))
-        {
-           jump();
-        }
-        else if (isAndroid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            jump();
-        }*/
-
+      
         if (Input.GetAxis("Fire1") != 0 || Input.GetAxis("Jump") != 0)
         {
             jump();
@@ -72,18 +59,6 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded()
     {
         RaycastHit hit;
-
-        /*
-        if(Physics.Raycast(transform.position, Vector3.down, out hit))
-        {
-            return hit.distance < 1.1f;
-        }
-        else
-        {
-            return false;
-        } 
-        */
-
-         return Physics.Raycast(transform.position, Vector3.down, out hit) && hit.distance < 1.1f;
+        return Physics.Raycast(transform.position, Vector3.down, out hit) && hit.distance < 1.1f;
     }
 }
