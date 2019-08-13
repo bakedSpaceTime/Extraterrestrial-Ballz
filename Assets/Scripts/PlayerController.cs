@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         {
             moveHorizontal = (Input.acceleration.x - PlayerPrefs.GetFloat("ACalX",0)) * androidMult;
             moveVertical = (Input.acceleration.y - PlayerPrefs.GetFloat("ACalY", 0)) * androidMult;
-            Debug.Log(moveVertical);
+            //Debug.Log(moveVertical);
             Debug.Log(Input.acceleration.z);
         }
 
