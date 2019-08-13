@@ -10,7 +10,7 @@ public class Menu : MonoBehaviour
    
     public void MainMenu()
     {
-        SceneManager.LoadScene(0, LoadSceneMode.Single);
+        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
         Time.timeScale = 1.0f;
     }
 
@@ -23,6 +23,12 @@ public class Menu : MonoBehaviour
     public void LevelSelect()
     {
         SceneManager.LoadScene("LevelMenu", LoadSceneMode.Single);
+        Time.timeScale = 1.0f;
+    }
+
+    public void OptionsMenu()
+    {
+        SceneManager.LoadScene("OptionsMenu", LoadSceneMode.Single);
         Time.timeScale = 1.0f;
     }
 
@@ -47,5 +53,11 @@ public class Menu : MonoBehaviour
         PlayerPrefs.SetFloat("ACalX", baseAcceleration.x);
         PlayerPrefs.SetFloat("ACalY", baseAcceleration.y);
         //PlayerPrefs.SetFloat("ACalz", 0.0f);
+    }
+
+    public void ResetAccelerationCalibration()
+    {
+        PlayerPrefs.SetFloat("ACalX", 0.0f);
+        PlayerPrefs.SetFloat("ACalY", 0.0f);
     }
 }
