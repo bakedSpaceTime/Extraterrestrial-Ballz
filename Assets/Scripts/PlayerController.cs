@@ -12,6 +12,12 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 accelerationOffset;
     private Rigidbody rb;
+    private int applicationType;
+
+    private int windowsApp = 0;
+    private int editorApp = 1;
+    private int androidApp = 2;
+
 
     void Start()
     {
@@ -24,7 +30,7 @@ public class PlayerController : MonoBehaviour
         float moveVertical;
         
 
-        if (Application.isEditor)
+        if (Application.isEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             moveHorizontal = Input.GetAxis("Horizontal");
             moveVertical = Input.GetAxis("Vertical");
@@ -62,5 +68,23 @@ public class PlayerController : MonoBehaviour
     {
         RaycastHit hit;
         return Physics.Raycast(transform.position, Vector3.down, out hit) && hit.distance < 1.1f;
+    }
+
+    private int DetermineApplicationType()
+    {
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            return windowsApp;
+        }
+        else if(Application.isEditor)
+        {
+            return editorApp;
+        }
+        else if(Application.platform == RuntimePlatform.Android)
+        {
+            return androidApp;
+        }
+
+        return -1;
     }
 }
