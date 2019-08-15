@@ -60,4 +60,9 @@ public class Menu : MonoBehaviour
         PlayerPrefs.SetFloat("ACalX", 0.0f);
         PlayerPrefs.SetFloat("ACalY", 0.0f);
     }
+
+    public void OpenAppStore()
+    {
+        Application.OpenURL("https://play.google.com/store/apps/dev?id=5116279090368000910");
+    }
 }
