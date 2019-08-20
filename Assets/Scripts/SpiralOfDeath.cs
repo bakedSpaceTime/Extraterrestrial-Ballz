@@ -8,6 +8,8 @@ public class SpiralOfDeath : MonoBehaviour
     // prefab must be oriented to world axis
     public GameObject prefab;
     public Transform parent;
+    // used to skip over messy spiral at the bottom
+    public int start;
     public int pieces;
     public float a;
     public float b;
@@ -26,7 +28,7 @@ public class SpiralOfDeath : MonoBehaviour
     // Update is called once per frame
     private void CreateSpiral()
     {
-        for(int i = 0; i < pieces; i ++)
+        for(int i = start; i < pieces; i ++)
         {
             if(RotationAngle(i))
             {
