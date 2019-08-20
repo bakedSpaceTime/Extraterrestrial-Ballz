@@ -2888,6 +2888,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PiecePrefab: {fileID: 1954095332}
   parent: {fileID: 1159624160}
+  xAxis: 0
+  yAxis: 0
+  zAxis: 0
 --- !u!1 &1165704482
 GameObject:
   m_ObjectHideFlags: 0
