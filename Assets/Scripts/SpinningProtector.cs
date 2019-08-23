@@ -7,9 +7,16 @@ public class SpinningProtector : MonoBehaviour
     public GameObject PiecePrefab;
     public Transform parent;
 
-    public bool xAxis;
-    public bool yAxis;
-    public bool zAxis;
+    [Header("World Euler Spin Axis")]
+    public float xEAxis;
+    public float yEAxis;
+    public float zEAxis;
+
+    public float angularSpeed;
+    public bool spinCW;
+    public bool spinCCW;
+
+    public float radius;
 
     private Vector3 origin;
     private Vector3 rotationOffset;
@@ -17,65 +24,57 @@ public class SpinningProtector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (spinCW && spinCCW)
+        {
+            spinCW = false;
+        }
+
+        //rotationOffset = parent.rotation;
+
         CreateProtector();
+    }
+
+    private void Update()
+    {
+        RotateProtector();
     }
 
     void CreateProtector()
     {
-        AxisCheck();
+        //GameObject currentPiece;
         int pieces = 8;
 
         origin = parent.position;
-        //rotationOffset = parent.rotation;
-
-        for(int i = 0; i < pieces; i++)
+        
+        for (int i = 0; i < pieces; i++)
         {
-            if (xAxis)
-            {
-                Vector3 position = Vector3.zero;
-                Quaternion rotation = Quaternion.Euler(45 * i, 0, 0) * PiecePrefab.transform.rotation;
 
-                Instantiate(PiecePrefab, position + origin, rotation, parent);
-            }
-            else if(zAxis)
-            {
-                Vector3 position = Vector3.zero;
-                Quaternion rotation = Quaternion.Euler(0, 0, 45 * i) * PiecePrefab.transform.rotation;
+            Quaternion rotation = Quaternion.Euler(0, 45 * i, 0) * PiecePrefab.transform.rotation;
 
-                Instantiate(PiecePrefab, position + origin, rotation, parent);
-            }
-            else
-            {
-                Vector3 position = Vector3.zero;
-                Quaternion rotation = Quaternion.Euler(0, 45 * i, 0) * PiecePrefab.transform.rotation;
-
-                Instantiate(PiecePrefab, position + origin, rotation, parent);
-            }
+            GameObject currentPiece = Instantiate(PiecePrefab, origin, rotation, parent) as GameObject;
             
-           
+            currentPiece.transform.Find("Spinner").GetComponent<Transform>().localPosition += new Vector3(0, 0, radius);
+            currentPiece.transform.Find("Spinner1").GetComponent<Transform>().localPosition += new Vector3(0, 0, radius);
         }
 
         PiecePrefab.SetActive(false);
+        parent.rotation = Quaternion.Euler(xEAxis, yEAxis, zEAxis);
     }
 
-    private void AxisCheck()
+    private void RotateProtector()
     {
-        if(xAxis && yAxis && zAxis)
+        //parent.rotation = Quaternion.Euler(xEAxis, yEAxis, zEAxis);
+
+        float angle = Time.deltaTime * (angularSpeed * Mathf.Rad2Deg);
+
+        if (spinCCW)
         {
-            xAxis = false;
-            zAxis = false;
+            parent.transform.Rotate(0, angle, 0, Space.Self);
         }
-        else if(yAxis && xAxis)
+        else if (spinCW)
         {
-            xAxis = false;
-        }
-        else if(xAxis && zAxis)
-        {
-            zAxis = false;
-        }
-        else if(zAxis && yAxis)
-        {
-            yAxis = false;
+            //parent.transform.Rotate(0, -angle, 0, Space.Self);
+            parent.transform.RotateAround(parent.transform.position, new Vector3(xEAxis, yEAxis, zEAxis), angle);
         }
     }
 }
