@@ -1053,10 +1053,8 @@ GameObject:
   - component: {fileID: 474344187}
   - component: {fileID: 474344186}
   - component: {fileID: 474344185}
-  - component: {fileID: 474344184}
-  - component: {fileID: 474344183}
   m_Layer: 10
-  m_Name: Spinner (1)
+  m_Name: Spinner1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1076,44 +1074,6 @@ Transform:
   m_Father: {fileID: 1954095333}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 300, y: 0, z: 0}
---- !u!114 &474344183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 474344181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d92c782398313940b659ce57e6a52d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xLength: 5
-  yLength: 0
-  zLength: 5
-  Speed: 2
-  spinCCW: 1
-  spinCW: 0
-  angularSpeed: 2
---- !u!114 &474344184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 474344181}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea1ed0c8026c9d45b8be89bfee0b865, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xLength: 0
-  yLength: 0
-  zLength: 0
-  linearSpeed: 0
-  spinCCW: 0
-  spinCW: 0
-  angularSpeed: 0
 --- !u!65 &474344185
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2888,9 +2848,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PiecePrefab: {fileID: 1954095332}
   parent: {fileID: 1159624160}
-  xAxis: 0
-  yAxis: 0
-  zAxis: 0
+  rotationAxis: {x: 0, y: 0, z: 0}
+  angularSpeed: 2
+  spinCW: 0
+  spinCCW: 1
+  radius: 5
 --- !u!1 &1165704482
 GameObject:
   m_ObjectHideFlags: 0
@@ -3545,8 +3507,6 @@ GameObject:
   - component: {fileID: 1325848876}
   - component: {fileID: 1325848875}
   - component: {fileID: 1325848874}
-  - component: {fileID: 1325848873}
-  - component: {fileID: 1325848872}
   m_Layer: 10
   m_Name: Spinner
   m_TagString: Untagged
@@ -3568,44 +3528,6 @@ Transform:
   m_Father: {fileID: 1954095333}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
---- !u!114 &1325848872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325848870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d92c782398313940b659ce57e6a52d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xLength: 5
-  yLength: 0
-  zLength: 5
-  Speed: 2
-  spinCCW: 1
-  spinCW: 0
-  angularSpeed: 2
---- !u!114 &1325848873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325848870}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea1ed0c8026c9d45b8be89bfee0b865, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xLength: 0
-  yLength: 0
-  zLength: 0
-  linearSpeed: 0
-  spinCCW: 0
-  spinCW: 0
-  angularSpeed: 0
 --- !u!65 &1325848874
 BoxCollider:
   m_ObjectHideFlags: 0
