@@ -7,10 +7,9 @@ public class SpinningProtector : MonoBehaviour
     public GameObject PiecePrefab;
     public Transform parent;
 
-    [Header("World Euler Spin Axis")]
-    public float xEAxis;
-    public float yEAxis;
-    public float zEAxis;
+    [Header("Spin Axis rotation")]
+    //Y axis of the protector is mapped to this axis
+    public Vector3 rotationAxis;
 
     public float angularSpeed;
     public bool spinCW;
@@ -58,7 +57,7 @@ public class SpinningProtector : MonoBehaviour
         }
 
         PiecePrefab.SetActive(false);
-        parent.rotation = Quaternion.Euler(xEAxis, yEAxis, zEAxis);
+        parent.rotation = Quaternion.Euler(rotationAxis);
     }
 
     private void RotateProtector()
@@ -67,14 +66,13 @@ public class SpinningProtector : MonoBehaviour
 
         float angle = Time.deltaTime * (angularSpeed * Mathf.Rad2Deg);
 
-        if (spinCCW)
+        if (spinCW)
         {
             parent.transform.Rotate(0, angle, 0, Space.Self);
         }
-        else if (spinCW)
+        else if (spinCCW)
         {
-            //parent.transform.Rotate(0, -angle, 0, Space.Self);
-            parent.transform.RotateAround(parent.transform.position, new Vector3(xEAxis, yEAxis, zEAxis), angle);
+            parent.transform.Rotate(0, -angle, 0, Space.Self);
         }
     }
 }
