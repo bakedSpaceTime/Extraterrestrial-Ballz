@@ -47,6 +47,7 @@ public class LevelControl : MonoBehaviour
             PlayLevel(nextLevel);
         }
     }
+
     public void PlayLevel(int level)
     {
         if(PlayerPrefs.GetInt(level.ToString(), -1) == 1)
