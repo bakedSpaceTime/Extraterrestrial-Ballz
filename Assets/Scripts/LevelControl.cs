@@ -82,5 +82,16 @@ public class LevelControl : MonoBehaviour
         button.transform.SetParent(buttonParent.transform, false);
        
         button.onClick.AddListener(delegate { PlayLevel(levelnum); });
+
+        if (PlayerPrefs.GetInt(levelnum.ToString(), -1) == 1)
+        {
+            button.transform.Find("Lock").gameObject.SetActive(false);
+            button.transform.Find("Unlock").gameObject.SetActive(true);
+        }
+        else
+        {
+            button.transform.Find("Lock").gameObject.SetActive(true);
+            button.transform.Find("Unlock").gameObject.SetActive(false);
+        }
     }
 }
