@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class PlayerController : MonoBehaviour
     public float androidMult;
 
     public Transform mainCamera;
+
+    public float sensitivity;
+    public CinemachineVirtualCamera cam;
+    public FloatingJoystick stik;
 
     private Vector3 accelerationOffset;
     private Rigidbody rb;
@@ -33,6 +38,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        rotateCamera()
+;
         //Vector3 movement;
         rawMovement.y = 0f;
         movement.y = 0f;
@@ -59,14 +66,16 @@ public class PlayerController : MonoBehaviour
         //Debug.Log(movement);
         rb.AddForce(1f * movement * speed);
       
+        /*
         if (Input.GetAxis("Fire1") != 0 || Input.GetAxis("Jump") != 0)
         {
             jump();
         }
+        */
 
     }
 
-    private void jump()
+    public void jump()
     {
         if(isGrounded())
         {
@@ -97,5 +106,13 @@ public class PlayerController : MonoBehaviour
         }
 
         return -1;
+    }
+
+    private void rotateCamera()
+    {
+        var comp = cam.GetCinemachineComponent<CinemachineOrbitalTransposer>();
+        comp.m_XAxis.m_InputAxisValue = stik.Horizontal * sensitivity;
+
+        //Debug.Log(comp.m_XAxis.m_InputAxisValue);
     }
 }
