@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     private int editorApp = 1;
     private int androidApp = 2;
 
+    //public FloatingJoystick stik;
+
     private Vector3 rawMovement;
     private Vector3 movement;
 
@@ -34,6 +36,9 @@ public class PlayerController : MonoBehaviour
         //Vector3 movement;
         rawMovement.y = 0f;
         movement.y = 0f;
+
+        //Debug.Log(stik.Horizontal);
+        //Debug.Log(Input.GetAxis("Look"));
 
         if (Application.isEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
