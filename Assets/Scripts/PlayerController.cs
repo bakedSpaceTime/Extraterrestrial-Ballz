@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public float explrad;
     public float androidMult;
 
+    public Transform mainCamera;
+
     private Vector3 accelerationOffset;
     private Rigidbody rb;
     private int applicationType;
@@ -17,6 +19,9 @@ public class PlayerController : MonoBehaviour
     private int windowsApp = 0;
     private int editorApp = 1;
     private int androidApp = 2;
+
+    private Vector3 rawMovement;
+    private Vector3 movement;
 
 
     void Start()
@@ -26,27 +31,28 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        float moveHorizontal;
-        float moveVertical;
-        
+        //Vector3 movement;
+        rawMovement.y = 0f;
+        movement.y = 0f;
 
         if (Application.isEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
-            moveHorizontal = Input.GetAxis("Horizontal");
-            moveVertical = Input.GetAxis("Vertical");
-            Debug.Log(moveHorizontal);
+            rawMovement.x = Input.GetAxis("Horizontal");
+            rawMovement.z = Input.GetAxis("Vertical");
         }
         else
         {
-            moveHorizontal = (Input.acceleration.x - PlayerPrefs.GetFloat("ACalX",0)) * androidMult;
-            moveVertical = (Input.acceleration.y - PlayerPrefs.GetFloat("ACalY", 0)) * androidMult;
-            //Debug.Log(moveVertical);
-            Debug.Log(Input.acceleration.z);
+            rawMovement.x = (Input.acceleration.x - PlayerPrefs.GetFloat("ACalX",0)) * androidMult;
+            rawMovement.z = (Input.acceleration.y - PlayerPrefs.GetFloat("ACalY", 0)) * androidMult;
         }
 
-        var movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        float angle = (mainCamera.transform.eulerAngles.y)* Mathf.Deg2Rad;
 
-        rb.AddForce(-1f * movement * speed);
+        movement.x = rawMovement.x * Mathf.Cos(angle) + rawMovement.z * Mathf.Sin(angle);
+        movement.z = -rawMovement.x * Mathf.Sin(angle) + rawMovement.z * Mathf.Cos(angle);
+
+        //Debug.Log(movement);
+        rb.AddForce(1f * movement * speed);
       
         if (Input.GetAxis("Fire1") != 0 || Input.GetAxis("Jump") != 0)
         {
