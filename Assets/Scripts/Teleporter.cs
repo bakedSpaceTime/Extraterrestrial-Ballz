@@ -5,11 +5,15 @@ using UnityEngine;
 public class Teleporter : MonoBehaviour
 {
     public Transform teleportTo;
-    public GameObject Player;
+    //public GameObject Player;
 
     public void OnTriggerEnter(Collider other)
     {
-        Player.transform.position = teleportTo.position;
+        if (other.CompareTag("Player"))
+        {
+            //Player.transform.position = teleportTo.position;
+            other.gameObject.transform.position = teleportTo.position;
+        }
     }
     /*
     private void Transport(Collider obj)
