@@ -4071,6 +4071,7 @@ MonoBehaviour:
   offset: 0.65
   explrad: 1
   androidMult: 1.5
+  mainCamera: {fileID: 963194228}
 --- !u!135 &2086996070
 SphereCollider:
   m_ObjectHideFlags: 0
