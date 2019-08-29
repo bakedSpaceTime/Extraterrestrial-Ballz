@@ -16,6 +16,7 @@ public class LevelControl : MonoBehaviour
     private void Start()
     {
         PlayerPrefs.SetInt("1", 1);
+        PlayerPrefs.SetInt("10", 1);
 
         if (createLevelButtons)
         {
